@@ -3,8 +3,6 @@
 include_once 'database/db.php';
 
 
-
-
 class Questions extends DB{
     protected $option1 ;
     protected $option2 ;
@@ -197,24 +195,26 @@ class usr extends DB {
   protected $scor ;
   protected $ip ;
   protected $browser ;
-  function __construct($name,$ip ='',$browser ='',$scor) {
+  protected $date;
+  function __construct($name,$ip ='',$browser ='',$scor,$dt) {
       $this->name= $name;
       $this->scor = $scor ;
       $this->ip = $ip ;
       $this->browser = $browser ;
+      $this->date = $dt;
     }
 
-  function createData(){
-      $sql = "INSERT INTO usr (name, ip , browser,scor) VALUES (?,?,?,?)";
+  function createData($name,$ip ='',$browser ='',$scor,$dt){
+      $sql = "INSERT INTO usr (name, ip , browser,scor,date) VALUES (?,?,?,?,?)";
           $stmt = $this ->connect()-> prepare($sql);
-          $stmt->execute([ $this->name,$this->ip,$this->browser ,$this->scor]);
+          $stmt->execute([ $name,$ip,$browser ,$scor,$dt]);
           return 1;
   }
 
 }
 
  
-$name =@$_POST["name"];
+$Name =@$_POST["name"];
 $scor =@$_POST["scor"];
 
 $ip_address = $_SERVER["REMOTE_ADDR"];
@@ -225,9 +225,10 @@ echo('<hr>'.'ip =');
 print_r($ip_address);
 echo('<hr>'.'browser');
 print_r($user_agent);
-echo('<hr>'.'name');
-print_r($name);
-echo('<hr>'.'scor');
-print_r($scor);
-$usr = new usr($name,$ip_address,$user_agent,$scor);
-$usr->createData() ;
+die();
+// echo('<hr>'.'name');
+// print_r($name);
+// echo('<hr>'.'scor');
+// print_r($scor);
+$usr = new usr('$Name','$ip_address','$user_agent','$scor','$date');
+$usr->createData('$Name','$ip_address','$user_agent','$scor','$date') ;

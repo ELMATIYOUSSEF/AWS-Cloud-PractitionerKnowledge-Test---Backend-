@@ -176,7 +176,7 @@ function timeOfStar(secend) {
                 <p class="">4-you will get points</p>
             </div>
             <div class="card-footer  d-flex justify-content-end">
-                <button class="btn btn-primary" onclick="Star()" id="go">start</button></div>
+                <button class="button" onclick="Star()" id="go">start</button></div>
         </div>`;
             clearInterval(id);
         }
@@ -253,9 +253,9 @@ function afficheQst() {
         document.querySelector('.card-body').innerHTML += ` </div>
         <div class="  d-flex justify-content-end">
         <div class ="btnShow">
-        <button class="btn btn-primary" id="showScor"  style="display : none"  onclick="showScor()">Score</button>
-        <button class="btn btn-primary" id="show"  data-toggle="modal" style="display : none" data-target="#exampleModal" onclick="showResult()">Show Correct Answer</button> </div>
-            <button class="btn btn-primary" onclick="next(${array[indeX].correctanswer.index})" id="next">Next</button></div>
+        <button class="button" id="showScor"  style="display : none"  onclick="showScor()">Score</button>
+        <button class="button" id="show"  data-toggle="modal" style="display : none" data-target="#exampleModal" onclick="showResult()">Show Correct Answer</button> </div>
+            <button class="button" onclick="next(${array[indeX].correctanswer.index})" id="next">Next</button></div>
     </div>
     `;
         indeX++
@@ -465,8 +465,9 @@ function next(crctanswer) {
         let Questions = array.length
         let totaleTime = Questions * 15;
         let score = (t / totaleTime) * 100
+        
         console.log('finich')
-        createData(nameusr,score)
+        createData(nameusr,Math.floor(score));
         Swal.fire({
             title: 'Quiz is finish',
             text: "",

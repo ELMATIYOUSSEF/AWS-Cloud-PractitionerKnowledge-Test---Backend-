@@ -21,9 +21,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Please don't forget to put your name</h5>
                     <label for="name" id="labelName">name :</label><br>
-                    <input type="text" name="name" id="name">
+                    <input type="text"class="form-control" placeholder="Name ..." name="name" id="name">
                 </div>
-                <div class="card-footer"><button class="btn btn-primary" onclick="startSound()" >Go</button><button class="btn btn-primary" onclick="timer()" style="display : none" id="go"></button></div>
+                <div class="card-footer"><button class="button Go" onclick="startSound()" >Go</button><button class="btn btn-primary" onclick="timer()" style="display : none" id="go"></button></div>
                 <div id="audio"></div>
             </div>
         </div>
@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class='modal-footer'>
-          <a href="index.html" class="btn btn-primary text-white" style="border: solid 1px white;">Try again</a>
+          <a href="index.html" class="button text-white" style="border: solid 1px white;">Try again</a>
         </div>
       </div>
     </div>
